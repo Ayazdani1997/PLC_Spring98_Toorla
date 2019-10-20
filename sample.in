@@ -1,0 +1,29 @@
+
+entry class Sample2 inherits a:
+    function main() returns int :
+        var a = 2;
+        var b = f();
+        var s1 = new string[2];
+        var s2 = new string[2];
+        var ss = "a";
+        var bb = "ba";
+        s1[0] = ss;
+        s2[0] = bb;
+        var i1 = new int[1];
+        var i2 = new int[1];
+        if(ss == bb)
+            print("True");
+        else
+            print("False");
+
+        return 10;
+    end
+
+end
+
+class a:
+    function f() returns bool[]:
+        return new bool[3];
+    end
+end
+

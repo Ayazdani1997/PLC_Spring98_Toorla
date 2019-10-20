@@ -1,0 +1,8 @@
+entry class Sample2 :
+    function main() returns int :
+        var a = 2;
+        if(a == 2)
+            return 0;
+    end
+
+end

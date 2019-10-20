@@ -207,6 +207,10 @@ public class ExpressionTypeExtractor extends Visitor<Type> {
     @Override
     public Type visit(Identifier identifier) {
         try {
+            SymbolTable xx = SymbolTable.top();
+            VarSymbolTableItem xxx = ((VarSymbolTableItem) SymbolTable.top().get(VarSymbolTableItem.var_modifier + identifier.getName()));
+            Type x4 = ((VarSymbolTableItem) SymbolTable.top().get(VarSymbolTableItem.var_modifier + identifier.getName()))
+                    .getType();
             return ((VarSymbolTableItem) SymbolTable.top().get(VarSymbolTableItem.var_modifier + identifier.getName()))
                     .getType();
         } catch (ItemNotFoundException variableNotDeclared) {
@@ -313,6 +317,7 @@ public class ExpressionTypeExtractor extends Visitor<Type> {
     @Override
     public Type visit(MethodCall methodCall) {
         Type instanceType = methodCall.getInstance().accept(this);
+
         if (instanceType instanceof UserDefinedType) {
             String className = ((UserDefinedType) instanceType).getClassDeclaration().getName().getName();
             try {
